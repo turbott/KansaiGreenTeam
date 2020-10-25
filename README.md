@@ -18,5 +18,6 @@
   - main
     - feature/ci(2020/10/22)
       - ruby / html / css 用のformatterを導入(しゅんや)
-
+    - feature/template data(2020/10/25)
+      - 編集できるようにテンプレートデータをschool素材から少し改変して導入(しゅんや)
 ***
