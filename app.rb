@@ -3,6 +3,11 @@ Bundler.require
 require 'sinatra/reloader' if development?
 require './models.rb'
 
+not_found do
+  status 404
+  erb :not_found
+end
+
 get '/' do
   erb :index
 end
