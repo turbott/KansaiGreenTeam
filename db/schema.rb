@@ -10,9 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_10_24_100426) {}
-=======
 ActiveRecord::Schema.define(version: 2020_10_27_052053) do
 
   create_table "users", force: :cascade do |t|
@@ -25,4 +22,3 @@ ActiveRecord::Schema.define(version: 2020_10_27_052053) do
   end
 
 end
->>>>>>> 4a68cd5c7071c0a93da9a10b0445b75921ecfea5
