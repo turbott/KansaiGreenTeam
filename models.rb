@@ -7,13 +7,9 @@ ActiveRecord::Base.establish_connection(
 
 class User < ActiveRecord::Base
   has_secure_password
-  validates :name,
-            presence: true
-  validates :account_name,
-            presence: true,
-            uniqueness: true
-  validates :password,
-            length: { in: 6..20 }
+  validates :name, presence: true
+  validates :account_name, presence: true, uniqueness: true
+  validates :password, length: { in: 6..20 }
   has_many :posts
 end
 

@@ -9,7 +9,7 @@ helpers do
   Dotenv.load
   Cloudinary.config do |config|
     config.cloud_name = ENV['CLOUD_NAME']
-    config.api_key    = ENV['CLOUDINARY_API_KEY']
+    config.api_key = ENV['CLOUDINARY_API_KEY']
     config.api_secret = ENV['CLOUDINARY_API_SECRET']
   end
 
@@ -88,10 +88,8 @@ end
 post '/posts/new' do
   file = params[:file]
   if file && !current_user.nil?
-    post = current_user.posts.create(
-      data_url: "",
-      description: params[:description]
-    )
+    post =
+      current_user.posts.create(data_url: '', description: params[:description])
     tempfile = file[:tempfile]
     upload = Cloudinary::Uploader.upload(tempfile.path)
     post.update_attribute(:data_url, upload['url'])
