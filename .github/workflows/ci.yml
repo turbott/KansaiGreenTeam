@@ -21,26 +21,31 @@ jobs:
         with:
           ruby-version: 2.6.x
 
-      # <----------------ファイル追加後、以下コメントを外してください---------------->
-      # - name: gem Install Prettier
-      #   run: |
-      #     gem install prettier
-      #   working-directory: ./src
+      - name: gem Install Prettier
+        run: |
+          gem install prettier
 
-      # - name: npm Install Prettier
-      #   run: |
-      #     npm install -g prettier
+      - name: gem Install Htmlbeautifier
+        run: |
+          gem install htmlbeautifier
 
-      # - name: Install Prettier Plugin
-      #   run: |
-      #     npm install --save-dev prettier @prettier/plugin-ruby
-      #   working-directory: ./src
+      - name: npm Install Prettier
+        run: |
+          npm install -g prettier
 
-      # - name: Run Prettier
-      #   run: |
-      #     ./node_modules/.bin/prettier --write '**/*.rb'
-      #     prettier --write '**/*.{css,html,js}'
-      #     working-directory: ./src
+      - name: Install Prettier Plugin
+        run: |
+          npm install --save-dev prettier @prettier/plugin-ruby
+
+      - name: Run Prettier
+        run: |
+          ./node_modules/.bin/prettier --write '**/*.rb'
+          prettier --write '**/*.{css,html,js}'
+
+      - name: Run Htmlbeautifier
+        run: |
+          for file in $(find . -name '*.erb'); do htmlbeautifier $file; done
+        working-directory: ./views
 
       - name: Commit format
         uses: stefanzweifel/git-auto-commit-action@v4

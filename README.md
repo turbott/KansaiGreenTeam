@@ -60,5 +60,7 @@ password: lit-password
     - ruby / html / css 用の formatter を導入(しゅんや)
   - feature/template data(2020/10/25)
     - 編集できるようにテンプレートデータを school 素材から少し改変して導入(しゅんや)
-
+  - feature/template data(2020/10/25)
+    - 編集できるようにテンプレートデータを school 素材から少し改変して導入(しゅんや)
+  - CI回るようなんだかんだ(2020/10/27)
 ---
