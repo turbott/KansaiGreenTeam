@@ -95,4 +95,3 @@ yarn-debug.log*
 !/storage/.keep
 
 development.db
-Gemfile.lock
