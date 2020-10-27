@@ -35,7 +35,7 @@ jobs:
 
       - name: Run Prettier
         run: |
-          ./node_modules/.bin/prettier --write '**/*.rb'
+          ./node_modules/.bin/prettier --write '**/*.{rb,erb}'
           prettier --write '**/*.{css,html,js}'
 
       - name: Commit format
