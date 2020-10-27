@@ -6,6 +6,13 @@ require './models.rb'
 enable :sessions
 
 helpers do
+  Dotenv.load
+  Cloudinary.config do |config|
+    config.cloud_name = ENV['CLOUD_NAME']
+    config.api_key    = ENV['CLOUDINARY_API_KEY']
+    config.api_secret = ENV['CLOUDINARY_API_SECRET']
+  end
+
   def current_user
     User.find_by(id: session[:user])
   end
@@ -35,7 +42,6 @@ end
 get '/' do
   erb :index
 end
-
 
 get '/signin' do
   erb :signin
