@@ -8,11 +8,12 @@
 
 - .github/workflows
   - ci.yml
-- src
-  - ??
 - `LICENSE.md`
   - [LICENSE.md](#https://github.com/turbott/KansaiGreenTeam/blob/main/LICENSE.md/LICENSE.md)
 - [README.md](#https://github.com/turbott/KansaiGreenTeam/blob/main/README.md)
+- db
+- public
+- views
 
 ---
 
