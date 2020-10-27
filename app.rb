@@ -7,11 +7,9 @@ get '/' do
   erb :index
 end
 
-
 get '/signin' do
   erb :signin
 end
-
 
 get '/home' do
   erb :home
