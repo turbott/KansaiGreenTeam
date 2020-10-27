@@ -25,6 +25,10 @@ jobs:
         run: |
           gem install prettier
 
+      - name: gem Install Htmlbeautifier
+        run: |
+          gem install htmlbeautifier
+
       - name: npm Install Prettier
         run: |
           npm install -g prettier
@@ -33,10 +37,12 @@ jobs:
         run: |
           npm install --save-dev prettier @prettier/plugin-ruby
 
-      - name: Run Prettier
+      - name: Run Prettier & Htmlbeautifier
         run: |
-          ./node_modules/.bin/prettier --write '**/*.{rb,erb}'
+          ./node_modules/.bin/prettier --write '**/*.rb'
           prettier --write '**/*.{css,html,js}'
+          htmlbeautifier '**/*.erb'
+
 
       - name: Commit format
         uses: stefanzweifel/git-auto-commit-action@v4
