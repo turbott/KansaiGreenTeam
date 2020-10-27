@@ -37,12 +37,15 @@ jobs:
         run: |
           npm install --save-dev prettier @prettier/plugin-ruby
 
-      - name: Run Prettier & Htmlbeautifier
+      - name: Run Prettier
         run: |
           ./node_modules/.bin/prettier --write '**/*.rb'
           prettier --write '**/*.{css,html,js}'
-          htmlbeautifier '**/*.erb'
 
+      - name: Run Htmlbeautifier
+        run: |
+          htmlbeautifier '*.erb'
+        working-directory: ./views
 
       - name: Commit format
         uses: stefanzweifel/git-auto-commit-action@v4
