@@ -25,7 +25,7 @@ not_found do
 end
 
 before do
-  if ['/', '/signin'].include?(request.path_info)
+  if %w[/ /signin].include?(request.path_info)
     authorize_redirect_to_home
   else
     authorize unless request.path_info == 'signout'
@@ -35,7 +35,6 @@ end
 get '/' do
   erb :index
 end
-
 
 get '/signin' do
   erb :signin
