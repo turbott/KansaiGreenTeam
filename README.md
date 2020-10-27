@@ -41,12 +41,9 @@ Life is Tech!の WebS コースのスクール素材テンプレートを使用�
 ### Setup
 
 ```
-1. スクールのDocker imageをAttach Shell
-2. Volumeをsrcのところに設定
-3. bundlerを使用
-  $ bundle install
-4. migrateできるかTest
-  $ rake db:migrate
+$ bundle install
+$ rake db:migrate
+$ rake db:seed
 ```
 
 ## 編集遍歴
