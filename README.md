@@ -46,6 +46,13 @@ $ rake db:migrate
 $ rake db:seed
 ```
 
+### テストアカウント
+
+```
+account_name: test
+password: lit-password
+```
+
 ## 編集遍歴
 
 - main
