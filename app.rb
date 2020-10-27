@@ -82,3 +82,20 @@ post '/signin' do
     redirect '/signin'
   end
 end
+
+post '/posts/new' do
+  file = params[:file]
+  if file && !current_user.nil?
+    post = current_user.posts.create(
+      data_url: "",
+      description: params[:description]
+    )
+    tempfile = file[:tempfile]
+    upload = Cloudinary::Uploader.upload(tempfile.path)
+    post.update_attribute(:data_url, upload['url'])
+
+    redirect '/home'
+  else
+    redirect '/posts/new'
+  end
+end
