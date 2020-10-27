@@ -41,6 +41,10 @@ get '/signin' do
   erb :signin
 end
 
+get '/signout' do
+  session[:user] = nil
+  redirect '/'
+end
 
 get '/home' do
   erb :home
