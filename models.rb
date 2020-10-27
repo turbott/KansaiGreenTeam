@@ -12,4 +12,10 @@ class User < ActiveRecord::Base
             uniqueness: true
   validates :password,
             length: { in: 6..20 }
+  has_many :posts
+end
+
+class Post < ActiveRecord::Base
+  validates :data_url, presence: true
+  belongs_to :user
 end
