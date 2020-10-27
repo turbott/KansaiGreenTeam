@@ -1,1 +1,1 @@
-<h1>ホーム画面</h1>
+# Sample.create([{hoge: "ほげえ"}])
