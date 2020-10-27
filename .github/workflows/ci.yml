@@ -44,7 +44,7 @@ jobs:
 
       - name: Run Htmlbeautifier
         run: |
-          htmlbeautifier '*.erb'
+          for file in $(find . -name '*.erb'); do htmlbeautifier $file; done
         working-directory: ./views
 
       - name: Commit format
