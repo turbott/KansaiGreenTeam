@@ -6,6 +6,13 @@ require './models.rb'
 enable :sessions
 
 helpers do
+  Dotenv.load
+  Cloudinary.config do |config|
+    config.cloud_name = ENV['CLOUD_NAME']
+    config.api_key = ENV['CLOUDINARY_API_KEY']
+    config.api_secret = ENV['CLOUDINARY_API_SECRET']
+  end
+
   def current_user
     User.find_by(id: session[:user])
   end
@@ -46,6 +53,7 @@ get '/signout' do
 end
 
 get '/home' do
+  @posts = Post.all
   erb :home
 end
 
@@ -54,6 +62,7 @@ get '/posts/new' do
 end
 
 get '/posts/:id' do
+  @post = Post.find(params[:id])
   erb :posts_show
 end
 
@@ -73,5 +82,20 @@ post '/signin' do
     redirect '/home'
   else
     redirect '/signin'
+  end
+end
+
+post '/posts/new' do
+  file = params[:file]
+  if file && !current_user.nil?
+    post =
+      current_user.posts.create(data_url: '', description: params[:description])
+    tempfile = file[:tempfile]
+    upload = Cloudinary::Uploader.upload(tempfile.path)
+    post.update_attribute(:data_url, upload['url'])
+
+    redirect '/home'
+  else
+    redirect '/posts/new'
   end
 end

@@ -1,1 +1,4 @@
 <h1>投稿詳細画面</h1>
+<img src="<%= @post.data_url %>" height="200">
+<p>説明: <%= CGI.escapeHTML(@post.description) %></p>
+<p>投稿者のID: <%= CGI.escapeHTML(@post.user_id.to_s) %></p>
