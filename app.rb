@@ -53,6 +53,7 @@ get '/signout' do
 end
 
 get '/home' do
+  @posts = Post.all
   erb :home
 end
 
@@ -61,6 +62,7 @@ get '/posts/new' do
 end
 
 get '/posts/:id' do
+  @post = Post.find(params[:id])
   erb :posts_show
 end
 
