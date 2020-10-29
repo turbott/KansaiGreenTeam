@@ -1,5 +1,17 @@
+<% unless current_user.nil? %>
+  <li><a href="/home">/home</a></li>
+  <li><a href="/posts/new">/posts/new</a></li>
+  <li><a href="/posts/1">/posts/1</a></li>
+  <li><a href="/ranking">/ranking</a></li>
+  <li><a href="/users/1">/users/1</a></li>
+  <li><a href="signout">/signout</a></li>
+<% else %>
+  <a class="toc-button" href="/signin">はじめる</a>
+  <%# <div><a href="/">/デバッグよう</a></div> %>
+<% end %>
 <h1>ホーム画面</h1>
-<div>
+<div class="toc">
+
   <% @posts.each do |post| %>
     <div>
       <a href="/posts/<%= post.id %>">

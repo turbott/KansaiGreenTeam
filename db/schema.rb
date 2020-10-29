@@ -11,21 +11,23 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_10_27_070950) do
-  create_table 'posts', force: :cascade do |t|
-    t.string 'data_url'
-    t.string 'description'
-    t.integer 'user_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index %w[user_id], name: 'index_posts_on_user_id'
+
+  create_table "posts", force: :cascade do |t|
+    t.string "data_url"
+    t.string "description"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'name'
-    t.string 'account_name'
-    t.string 'password_digest'
-    t.string 'icon_url'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "account_name"
+    t.string "password_digest"
+    t.string "icon_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
 end
