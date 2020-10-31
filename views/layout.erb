@@ -5,24 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>LiT SportsFesta2020</title>
-    <link rel="stylesheet" href="/public/stylesheet.css">
+    <link rel="stylesheet" href="./stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
     <header>
-      <ul>
-        <% unless current_user.nil? %>
-          <li><a href="/home">/home</a></li>
-          <li><a href="/posts/new">/posts/new</a></li>
-          <li><a href="/posts/1">/posts/1</a></li>
-          <li><a href="/ranking">/ranking</a></li>
-          <li><a href="/users/1">/users/1</a></li>
-          <li><a href="signout">/signout</a></li>
-        <% else %>
-          <li><a href="/">/</a></li>
-          <li><a href="/signin">/signin</a></li>
-        <% end %>
-      </ul>
+      <div class="main_img"><img width="48%" height="48%" src="./img/SportsFesta2020_logo_03.png"></div>
     </header>
-    <%= yield %>
+    <%=yield%>
   </body>
 </html>
